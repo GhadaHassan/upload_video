@@ -24,6 +24,25 @@
               To make icon is active ==> go to composer to create helper and make folder and file helpers
               go to terminal 
             -->
+
+            <!--
+            In laravel custom helper, you can create your own function and 
+            call anywhere like route, blade view, models, controller etc in
+             laravel project. It is best practice to code reusable and saves 
+             a lot of time to replicate the code.
+            custom helper helps to reduce the re-writing the same code
+             again and again. In this custom helper tutorial, 
+             we will show you an example of how you can create a function in your
+              custom helper and how to call this function.
+            -->
+
+            <!--
+            step to create helpers:
+            1. Create helpers.php File inside the app directory
+              In this file, you can write our own functions and call anywhere in your laravel based project.
+            2. Add File Path In composer.json File  
+            3. run in terminal composer dump-autoload
+            -->
           <a class="nav-link" href="{{url('/dashboard/users')}}">
             <i class="material-icons">person</i>
             <p>User Profile</p>

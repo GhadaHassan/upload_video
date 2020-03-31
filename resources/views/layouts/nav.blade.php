@@ -2,7 +2,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="{{ url('/') }}" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
-          Project Name
+          {{ trans('main.logo') }}
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar bar1"></span>
@@ -47,17 +47,31 @@
 
           @if (Route::has('login'))
             @auth
-                <li class="nav-item">
-                    <a href="" class="nav-link">Home</a>
-                </li>
+              <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+              </li>
           @else
                 <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                    <a href="{{ route('login') }}" class="nav-link">{{ trans('main.login') }}</a>
                 </li>
 
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">Register</a>
+                        <a href="{{ route('register') }}" class="nav-link">{{ trans('main.register') }}</a>
                     </li>
                 @endif
             @endauth
@@ -67,22 +81,3 @@
     </div>
   </nav>
 
-  <div class="page-header section-dark" style="background-image: url('website/assets/img/antoine-barres.jpg')">
-    <div class="filter"></div>
-    <div class="content-center">
-      <div class="container">
-        <div class="title-brand">
-          <h1 class="presentation-title">Project Name</h1>
-          <div class="fog-low">
-            <img src="website/assets/img/fog-low.png" alt="">
-          </div>
-          <div class="fog-low right">
-            <img src="website/assets/img/fog-low.png" alt="">
-          </div>
-        </div>
-        <h2 class="presentation-subtitle text-center">Any info about your project</h2>
-      </div>
-    </div>
-    <div class="moving-clouds" style="background-image: url('website/assets/img/clouds.png'); "></div>
-    
-  </div>

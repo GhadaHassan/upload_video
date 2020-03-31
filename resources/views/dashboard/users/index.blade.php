@@ -37,6 +37,9 @@
                 E-mail
               </th>
               <th>
+                Group
+              </th>
+              <th>
                 Control
               </th>
             </thead>
@@ -45,7 +48,8 @@
               <tr>
                   <td>{{$row->id}}</td>
                   <td>{{$row->name}}</td>
-                  <td class="text-primary">{{$row->email}}</td>
+                  <td>{{$row->email}}</td>
+                  <td class="text-primary">{{strtoUpper($row->group)}}</td>
                   <td class="td-actions">
 
                     <!-- To make edit and delete buttoms is shared-->

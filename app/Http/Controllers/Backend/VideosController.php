@@ -9,8 +9,8 @@ use App\Models\Tag;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\VideosController\Store;
 use App\Http\Requests\Backend\VideosController\Update;
+use App\Http\Requests\Backend\VideosController\Store;
 
 
 

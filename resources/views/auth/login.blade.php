@@ -1,7 +1,27 @@
-@extends('layouts.app')
-
+@extends('auth.layout.app')
+@section('title','Login')
 @section('content')
-<div class="container">
+<form method="POST" action="{{ route('login') }}" class="login-form" >
+    @csrf
+
+    <label for="email">{{ __('E-Mail Address') }}</label>
+    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Email">
+    
+    <label for="password">{{ __('Password') }}</label>
+    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+    <label for="remember">
+    {{ __('Remember Me') }}
+</label>
+<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+<button type="submit" class="btn btn-danger btn-block btn-round">
+    {{ __('Login') }}
+</button>
+
+    
+</form>
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +89,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+@include('auth.layout.footer')
 @endsection
+
+

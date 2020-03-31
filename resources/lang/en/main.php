@@ -2,6 +2,8 @@
 
 return [
 
-    'logo' => 'the website is en'
+    'logo' => 'LOGO',
+    'register' => 'Register',
+    'login' => 'Login'
 
 ];

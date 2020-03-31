@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Backend\UsersController;
- 
+namespace App\Http\Requests\Frontend\CommentsController;
+
 use Illuminate\Foundation\Http\FormRequest;
 
-class Update extends FormRequest
+class Store extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class Update extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:191'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$this->user], //==> this when make update email not same email for this user
-            'group' => ['required']
+            'comment' => ['required','min:10'],
+
         ];
     }
 }
